@@ -7,11 +7,19 @@ export function cli(argv: string) {
   if (argv.length === 1) {
     switch (argv[0]) {
       case 'build':
-        return build(process.cwd());
+        try {
+          build(process.cwd());
+        } catch (err) {
+          console.log('ERROR:', err.message);
+        }
       case 'init':
-        return init(path.basename(process.cwd()), process.cwd());
+        try {
+          init(path.basename(process.cwd()), process.cwd());
+        } catch (err) {
+          console.log('ERROR:', err.message);
+        }
+      default:
+        console.log('Usage: ts-pub build|init');
     }
   }
-
-  console.log('Usage: ts-pub build|init');
 }

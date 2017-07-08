@@ -32,5 +32,9 @@ export async function build(dirname: string) {
   pkg.main = pkg.main.replace(/^dist\//, '');
   pkg.typings = pkg.typings.replace(/^dist\//, '');
 
-  await fs.writeJSON(path.join(dirname, 'dist', 'package.json'), pkg, { encoding: 'utf8' });
+  await fs.writeFile(
+    path.join(dirname, 'dist', 'package.json'),
+    JSON.stringify(pkg, null, 2),
+    { encoding: 'utf8' }
+  );
 }
