@@ -30,7 +30,7 @@ const files: { [key: string]: (opts: { dirname: string; name: string; }) => stri
     return JSON.stringify({
       compilerOptions: {
         strict: true,
-        target: 'es2015',
+        target: 'es2017',
         module: 'commonjs',
         declaration: true,
         typeRoots: [
